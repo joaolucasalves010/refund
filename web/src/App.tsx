@@ -1,5 +1,9 @@
-function App() {
-  return <h1 className="text-3xl font-bold text-red-800">Página App</h1>
+import Routes from "./routes"
+
+const App = () => {
+  return (
+    <Routes />
+  )
 }
 
 export default App
