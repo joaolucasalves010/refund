@@ -3,6 +3,7 @@
 @theme {
   --default-font-family: "Open Sans", serif;
 
+  --text-xxs: 10px; 
   --color-gray-100: #1f2523;
   --color-gray-200: #4d5c57;
   --color-gray-300: #cdd5d2;
