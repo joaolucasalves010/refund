@@ -5,8 +5,8 @@ import EmployeeRoutes from "./EmployeeRoutes"
 const Routes = () => {
   return (
     <BrowserRouter>
-      <AuthRoutes />
       <EmployeeRoutes />
+      <AuthRoutes />
     </BrowserRouter>
   )
 }
