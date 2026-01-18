@@ -6,7 +6,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <EmployeeRoutes />
-      <AuthRoutes />
+      {/* <AuthRoutes /> */}
     </BrowserRouter>
   )
 }
