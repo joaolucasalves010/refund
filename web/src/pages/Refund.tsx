@@ -14,13 +14,16 @@ const Refund = () => {
         required
         legend="Nome da solicitação"
       />
-      <Select legend="Categoria">
-        {CATEGORIES_KEYS.map((category) => (
-          <option key={category}>
-            {CATEGORIES[category].name}
-          </option>
-        ))}
-      </Select>
+      <div className="flex gap-4">
+        <Select legend="Categoria">
+          {CATEGORIES_KEYS.map((category) => (
+            <option key={category}>
+              {CATEGORIES[category].name}
+            </option>
+          ))}
+        </Select>
+        <Input legend="Valor" required/>
+      </div>
     </form>
   )
 }
