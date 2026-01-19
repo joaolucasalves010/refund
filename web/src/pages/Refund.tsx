@@ -1,5 +1,6 @@
 import Input from "../components/Input"
 import Select from "../components/Select"
+import { CATEGORIES, CATEGORIES_KEYS } from "../utlis/categories"
 
 const Refund = () => {
   return (
@@ -14,6 +15,11 @@ const Refund = () => {
         legend="Nome da solicitação"
       />
       <Select legend="Categoria">
+        {CATEGORIES_KEYS.map((category) => (
+          <option key={category}>
+            {CATEGORIES[category].name}
+          </option>
+        ))}
       </Select>
     </form>
   )
