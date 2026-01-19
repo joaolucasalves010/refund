@@ -13,7 +13,8 @@ const Refund = () => {
         required
         legend="Nome da solicitação"
       />
-      <Select legend="Categoria"/>
+      <Select legend="Categoria">
+      </Select>
     </form>
   )
 }

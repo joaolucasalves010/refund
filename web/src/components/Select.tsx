@@ -11,7 +11,8 @@ const Select = ({legend, children, ...rest}: Props) => {
         {legend}  
       </legend>}
 
-      <select {...rest}  className="w-full h-12 rounded-lg border px-4 border-gray-300 text-sm text-gray-100 bg-transparent outline-none focus:border-2 focus:border-green-100 placeholder-gray-300">
+      <select {...rest} value="" className="w-full h-12 rounded-lg border px-4 border-gray-300 text-sm text-gray-100 bg-transparent outline-none focus:border-2 focus:border-green-100 placeholder-gray-300">
+        <option value="" disabled hidden>Selecione</option>
         {children}
       </select>
     </fieldset>
