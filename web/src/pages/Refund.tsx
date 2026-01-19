@@ -1,8 +1,13 @@
+import { useState } from "react"
 import Input from "../components/Input"
 import Select from "../components/Select"
+import Upload from "../components/Upload"
 import { CATEGORIES, CATEGORIES_KEYS } from "../utlis/categories"
 
 const Refund = () => {
+  const [category, setCategory] = useState("")
+
+
   return (
     <form className="bg-gray-500 w-full rounded-xl flex flex-col p-10 gap-6 lg:min-w-[512px]:">
       <header>
@@ -15,7 +20,7 @@ const Refund = () => {
         legend="Nome da solicitação"
       />
       <div className="flex gap-4">
-        <Select legend="Categoria">
+        <Select legend="Categoria" onChange={(e) => setCategory(e.target.value)}>
           {CATEGORIES_KEYS.map((category) => (
             <option key={category}>
               {CATEGORIES[category].name}
@@ -24,6 +29,8 @@ const Refund = () => {
         </Select>
         <Input legend="Valor" required/>
       </div>
+
+      <Upload filename="teste.png"/>
     </form>
   )
 }
