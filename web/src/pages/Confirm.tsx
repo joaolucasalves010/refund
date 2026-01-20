@@ -1,9 +1,14 @@
 import okSvg from "../assets/ok.svg"
-import Button from "../components/Button"
+import { useLocation, Navigate } from "react-router"
 
 const Confirm = () => {
 
-  // lg:min-h-[388px]
+  const location = useLocation()
+
+  if (!location.state?.fromSubmit) {
+    return <Navigate to="/" />
+  }
+
 
   return (
     <div className="bg-gray-500 p-10 lg:min-w-[512px] rounded-2xl flex flex-col justify-center items-center">
