@@ -1,5 +1,7 @@
 import { useState, type FormEvent } from "react"
 import Input from "../components/Input"
+import Button from "../components/Button"
+import searchSvg from "../assets/search.svg"
 
 const Dashboard = () => {
 
@@ -17,6 +19,9 @@ const Dashboard = () => {
         <Input placeholder="Pesquisar pelo nome" onChange={(e) => setName
           (e.target.value)
         } />
+        <Button variant="iconSmall">
+          <img src={searchSvg} alt="Ícone de busca" className="w-5"/>
+        </Button>
       </form>
     </div>
   )
