@@ -4,12 +4,13 @@ import Button from "../components/Button"
 import searchSvg from "../assets/search.svg"
 import { CATEGORIES } from "../utlis/categories"
 import RefundItem from "../components/RefundItem"
+import formatCurrency from "../utlis/formatCurrency"
 
 const REFUND_EXAMPLE = {
   id: "123",
   name: "João Lucas",
   category: "Alimentação",
-  amount: "34,50",
+  amount: formatCurrency(34.5),
   categoryImg: CATEGORIES["food"].icon
 }
 
