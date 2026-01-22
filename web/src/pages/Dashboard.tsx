@@ -2,6 +2,16 @@ import { useState, type FormEvent } from "react"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import searchSvg from "../assets/search.svg"
+import { CATEGORIES } from "../utlis/categories"
+import RefundItem from "../components/RefundItem"
+
+const REFUND_EXAMPLE = {
+  id: "123",
+  name: "João Lucas",
+  category: "Alimentação",
+  amount: "34,50",
+  categoryImg: CATEGORIES["food"].icon
+}
 
 const Dashboard = () => {
 
@@ -23,6 +33,11 @@ const Dashboard = () => {
           <img src={searchSvg} alt="Ícone de busca" className="w-5"/>
         </Button>
       </form>
+
+      <div>
+        <RefundItem data={REFUND_EXAMPLE}/>
+      </div>
+
     </div>
   )
 }
