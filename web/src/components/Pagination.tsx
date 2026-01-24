@@ -5,19 +5,21 @@ import Button from "./Button"
 
 type Props = {
   current: number,
-  total: number
+  total: number,
+  onNext: () => void,
+  onPrevious: () => void
 }
 
-const Pagination = ({total, current, ...rest}: Props) => {
+const Pagination = ({total, current, onNext, onPrevious}: Props) => {
   return (
     <div className="flex justify-center items-center gap-4 flex-1">
-      <Button variant="iconSmall">
+      <Button variant="iconSmall" onClick={onPrevious} disabled={current === 1}>
         <img src={leftSvg} alt="Ícone de voltar" />
       </Button>
       <span className="text-sm text-gray-200">
         {current}/{total}
       </span>
-      <Button variant="iconSmall">
+      <Button variant="iconSmall" onClick={onNext} disabled={current === total}>
         <img src={right} alt="Ícone de avançar" />
       </Button>
     </div>

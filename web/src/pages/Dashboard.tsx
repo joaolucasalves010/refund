@@ -18,17 +18,28 @@ const REFUND_EXAMPLE = {
 const Dashboard = () => {
 
   const [name, setName] = useState("")
+  const [page, setPage] = useState(1)
+  const [totalOfPage, setTotalOfPage] = useState(10)
 
   const fetchRefunds = (e: FormEvent) => {
     e.preventDefault()
     console.log(name)
   }
 
+  const handlePagination = (action: "next" | "previous") => {
+    if (action == "next" && page < totalOfPage) {
+      setPage((prevPage) => prevPage + 1)
+    }
+    if (action == "previous" && page > 1) {
+      setPage((prevPage) => prevPage - 1)
+    }
+  }
+
   return (
     <div className="bg-gray-500 rounded-xl p-10 md:min-w-[768px]">
       <h1 className="text-gray-100 font-bold text-xl flex-1">Solicitações</h1>
       <form onSubmit={(e) => fetchRefunds(e)} className="flex items-center justify-between pb-6 border-b-[1px] border-b-gray-400 md:flex-row gap-2 mt-6">
-        <Input placeholder="Pesquisar pelo nome" onChange={(e) => setName
+        <Input placeholder="Pesquisar pelo nome" value={name} onChange={(e) => setName
           (e.target.value)
         } />
         <Button variant="iconSmall">
@@ -40,9 +51,11 @@ const Dashboard = () => {
         <RefundItem data={REFUND_EXAMPLE}/>
       </div>
 
-      <Pagination 
-        current={1}
-        total={10}
+      <Pagination
+        current={page}
+        total={totalOfPage}
+        onNext={() => handlePagination("next")}
+        onPrevious={() => handlePagination("previous")}
       />
 
     </div>
