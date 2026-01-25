@@ -4,8 +4,10 @@ import Button from "../components/Button"
 import searchSvg from "../assets/search.svg"
 import { CATEGORIES } from "../utlis/categories"
 import RefundItem from "../components/RefundItem"
+import type { RefundItemProps } from "../components/RefundItem"
 import formatCurrency from "../utlis/formatCurrency"
 import Pagination from "../components/Pagination"
+import Refund from "./Refund"
 
 const REFUND_EXAMPLE = {
   id: "123",
@@ -20,6 +22,7 @@ const Dashboard = () => {
   const [name, setName] = useState("")
   const [page, setPage] = useState(1)
   const [totalOfPage, setTotalOfPage] = useState(10)
+  const [refunds, setRefunds] = useState<RefundItemProps[]>([REFUND_EXAMPLE])
 
   const fetchRefunds = (e: FormEvent) => {
     e.preventDefault()
@@ -47,8 +50,10 @@ const Dashboard = () => {
         </Button>
       </form>
 
-      <div className="mt-6 flex flex-col gap-4 max-h-[342px] overflow-y-scroll">
-        <RefundItem data={REFUND_EXAMPLE}/>
+      <div className="my-6 flex flex-col gap-4 max-h-[342px] overflow-y-scroll">
+        {refunds.map((item) => (
+          <RefundItem key={item.id} data={item} href={`/refund/${item.id}`}/>
+        ))}
       </div>
 
       <Pagination
