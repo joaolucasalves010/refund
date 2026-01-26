@@ -10,7 +10,7 @@ const AuthRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<AuthLayout />}>
-        <Route path="/sigin" element={<SigIn />}/>
+        <Route path="/" element={<SigIn />}/>
         <Route path="/signup" element={<SignUp />}/>
       </Route>
 
